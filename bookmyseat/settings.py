@@ -16,9 +16,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-bu3khf1l7f@bylxy-%+vtb^a1l=#%ukne!(qjm=y^-!@u40*um'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['.onrender.com', '.vercel.app']
 
 
 # Application definition
@@ -83,7 +83,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default']=dj_database_url.parse('postgresql://django_bookmyshow_zyfb_user:qHony03jwfvOF980PdNhmk6xcdiiGjf2@dpg-d70klbuuk2gs739cjsqg-a.oregon-postgres.render.com/django_bookmyshow_zyfb')
+DATABASES['default'] = dj_database_url.parse('postgresql://django_bookmyshow_zyfb_user:qHony03jwfvOF980PdNhmk6xcdiiGjf2@dpg-d70klbuuk2gs739cjsqg-a.oregon-postgres.render.com/django_bookmyshow_zyfb')
 
 
 # Password validation

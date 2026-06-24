@@ -24,7 +24,7 @@ RAZORPAY_KEY_ID = os.environ.get('RAZORPAY_KEY_ID')
 RAZORPAY_KEY_SECRET = os.environ.get('RAZORPAY_KEY_SECRET')
 RAZORPAY_WEBHOOK_SECRET = os.environ.get('RAZORPAY_WEBHOOK_SECRET')
 
-# ─────────────────────────────────────────
+# ─────────────────────────────────────────gim
 # ⚙️ CELERY CONFIGURATION (Background Queue)
 # ─────────────────────────────────────────
 CELERY_BROKER_URL = 'redis://localhost:6379/0'   # Redis is our task queue
@@ -151,6 +151,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+DATABASES['default'] = dj_database_url.parse(os.environ.get('DATABASE_URL'))
 
 
 # Password validation

@@ -1,0 +1,39 @@
+{% extends "users/basic.html" %}
+
+{% block content %}
+
+<div style="max-width: 900px; margin: 0 auto; padding: 20px;">
+
+    <h1>{{ movie.title }}</h1>
+
+    {% with embed_id=movie.get_safe_trailer_embed_id %}
+        {% if embed_id %}
+            <div style="margin: 20px 0;">
+                <h2>Watch Trailer</h2>
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/{{ embed_id }}"
+                        loading="lazy"
+                        allowfullscreen
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
+                    </iframe>
+                </div>
+            </div>
+        {% else %}
+            <div style="background:#f8f8f8; border: 2px dashed #ccc; border-radius:8px; padding:40px; text-align:center; margin:20px 0;">
+                <p style="font-size:18px; color:#888;">Trailer not available</p>
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- BOOK TICKET BUTTON -->
+    <div style="margin-top: 30px;">
+        <a href="{% url 'movies:theater_list' movie.id %}"
+           style="background:#e50914; color:white; padding:14px 40px; border-radius:8px; text-decoration:none; font-size:18px; font-weight:bold;">
+            🎟️ Book Ticket
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

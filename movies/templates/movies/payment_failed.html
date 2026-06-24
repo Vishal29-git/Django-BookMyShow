@@ -1,0 +1,8 @@
+{% extends "movies/base.html" %}
+{% block content %}
+<div class="container mt-5 text-center">
+    <h2 style="color: red;">❌ Payment Failed</h2>
+    <p>Don't worry — your seats have been released. Please try again.</p>
+    <a href="{% url 'movie_list' %}" class="btn btn-secondary">Back to Movies</a>
+</div>
+{% endblock %}
